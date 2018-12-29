@@ -40,7 +40,8 @@ y = sc_y.fit_transform(y)
 RANDOM FOREST REGRESSION
 ------------------------
 
-• It's a team (ensamble) of Decision Trees and the outcome is the average of the results of these decision trees
+• It's a team (ensamble) of Decision Trees and the outcome is the average of the
+  results of these decision trees
 
 """
 #####################################################################################

@@ -4,6 +4,15 @@ Machine Learning Templates &amp; Bits | Udemy Course Notes
 
 ## Changelog
 
+### v1.2.0
+
+* Clustering
+	- K-means clustering
+	- Hierarchical clustering
+
+* Association Rule Learning
+	- Apriori
+
 ### v1.1.0
 
 * Classification

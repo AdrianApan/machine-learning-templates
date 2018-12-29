@@ -28,7 +28,7 @@ X = onehotencoder.fit_transform(X).toarray()
 • https://i.imgur.com/XRBkXlt.jpg
 • https://i.imgur.com/TuLRoaM.jpg 
 
-It's enough to use just one dummy column / variable since you can instantly if NY is 0 then it's clearly Cali
+It's enough to use just one dummy column / variable since you can instantly tell if NY is 0 then it's clearly Cali
 
 !!! ALWAYS OMIT ONE DUMMY VARIABLE (if you have 10 include 9, if you have 5 include 4 etc.)
 
