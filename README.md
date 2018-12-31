@@ -4,6 +4,12 @@ Machine Learning Templates &amp; Bits | Udemy Course Notes
 
 ## Changelog
 
+### v1.4.0
+
+* Reinforcement Learning
+	- Upper Confidence Bound (UCB)
+	- Thompson Sampling
+
 ### v1.2.0
 
 * Clustering
