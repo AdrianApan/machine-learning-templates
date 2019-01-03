@@ -4,6 +4,14 @@ Machine Learning Templates &amp; Bits | Udemy Course Notes
 
 ## Changelog
 
+### v1.5.0
+
+* Natural Language Processing
+
+* Deep Learning
+	- Artificial Neural Network (ANN)
+	- Convolutional Neural Networks (CNN)
+
 ### v1.4.0
 
 * Reinforcement Learning
