@@ -79,7 +79,7 @@ X_train= sc_X.fit_transform(X_train)
 X_test= sc_X.transform(X_test)
 
 """
-The fit function will fit data to an equation or algorithm. The transform funciton will apply that fitting equation to the data.
+The fit function will fit data to an equation or algorithm. The transform function will apply that fitting equation to the data.
 There are some cases where we want to apply a the fit of one variable to another, and there are some cases where we want to fit and transform the same data.
 For example in the scaling sections in out code we use fit_transform() X_train and we use the fit to transform the X_test data in order to not bias our model.
 """

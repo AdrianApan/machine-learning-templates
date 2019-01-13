@@ -4,6 +4,19 @@ Machine Learning Templates &amp; Bits | Udemy Course Notes
 
 ## Changelog
 
+### v1.6.0
+
+* Dimensionality Reduction
+	- Principal Component Analysis (PCA)
+	- Linear Discriminant Analysis (LDA)
+	- Kernel PCA
+
+* Model Selection & Boosting
+	- Model Selection
+		- Grid Search
+		- k-Fold Cross Validation
+	- XGBoost
+
 ### v1.5.0
 
 * Natural Language Processing

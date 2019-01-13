@@ -41,7 +41,7 @@ APRIORI RULE LEARNING (ARL)
 	- How many people watched the movie? Let's say 10 out of 100 saw M1 so Support = 10%
 
 	2) Confidence
-	- Let's say out of 100 people 40 watched M2. Out of those 40 how many say M1? (Let's say 7) Confidence = 7/40 (17.5%)
+	- Let's say out of 100 people 40 watched M2. Out of those 40 how many saw M1? (Let's say 7) Confidence = 7/40 (17.5%)
 
 	3) Lift
 	- Lift = Confidence/Support = 17.5/10 =  1.75%
