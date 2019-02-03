@@ -1,8 +1,22 @@
-# Machine Learning Templates
+# Machine Learning / Deep Learning Templates & Bits
 Machine Learning Templates &amp; Bits | Udemy Course Notes
 [https://www.udemy.com/machinelearning](https://www.udemy.com/machinelearning)
 
+Deep Learning Templates &amp; Bits | Udemy Course Notes
+[https://www.udemy.com/deeplearning/](https://www.udemy.com/deeplearning)
+
 ## Changelog
+
+### v1.7.0
+
+* Adding thee "Deep Learning" course
+
+* ANN section updates
+
+* CNN section updates
+
+* Deep Learning
+	- Recurrent Neural Networks (RNN)
 
 ### v1.6.0
 

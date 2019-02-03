@@ -47,7 +47,7 @@ XGBoost
 """
 #######################################################################################################################
 
-# Fitting XGBoost to the Training set
+# Fitting XGBoost to the Training set 
 from xgboost import XGBClassifier
 classifier = XGBClassifier()
 classifier.fit(X_train, y_train)

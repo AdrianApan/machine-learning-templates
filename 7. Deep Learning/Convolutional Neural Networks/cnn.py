@@ -5,7 +5,6 @@ CONVOLUTIONAL NEURAL NETWORK (CNN)
 ----------------------------------
 
 • CNN structure: https://i.imgur.com/mFz0WRj.png
-
 • Summary: https://www.udemy.com/machinelearning/learn/v4/t/lecture/6761150?start=0
 
 
@@ -13,9 +12,7 @@ CONVOLUTIONAL NEURAL NETWORK (CNN)
 ---------------
 
 • Udemy: https://www.udemy.com/machinelearning/learn/v4/t/lecture/6761140?start=0
-
 • Input image ⓧ Feature detector (aka. Kernel or Filter) = Feature map (aka. Convolt feature or Activation map)
-
 • We create multiple feature maps to obtain our first convolution layer
 
 
@@ -23,20 +20,18 @@ CONVOLUTIONAL NEURAL NETWORK (CNN)
     ---------------
     
     • Udemy: https://www.udemy.com/machinelearning/learn/v4/t/lecture/6761142?start=0
-
-    • Helps removing linearity
+    • Helps removing linearity (increase non-linearity)
 
 
 2. POOLING
 -----------
 
 • Udemy: https://www.udemy.com/machinelearning/learn/v4/t/lecture/6761144?start=0
-
+• https://i.imgur.com/VoxsHbN.png
+• We apply the max pooling to each feature map
 • http://ais.uni-bonn.de/papers/icann2010_maxpool.pdf
-
 • Helps to distinguish the features even when these are skewed or the pattern is slightly different etc., also helps with overfitting
   as it reduces the size and gets rid of the noise while preserving the feature
-
 • Aka. Downsampling
 
 
@@ -44,9 +39,7 @@ CONVOLUTIONAL NEURAL NETWORK (CNN)
 --------------
 
 • Udemy: https://www.udemy.com/machinelearning/learn/v4/t/lecture/6761146?start=0
-
 • https://i.imgur.com/wofSCXY.png
-
 • Basically matrix to vector so we can use it as input layer for a future ANN
 
 
@@ -54,13 +47,9 @@ CONVOLUTIONAL NEURAL NETWORK (CNN)
 -------------------
 
 • Udemy: https://www.udemy.com/machinelearning/learn/v4/t/lecture/6761148?start=0
-
 • Adding ANN after flattening basically
-
 • In CNN Hidden Layers are called Fully Connected Layers
-
 • In CNN Cost Function is called Loss Function (cross entropy / mean squared error)
-
 • Same as in an ANN the weights get adjusted via backpropagation, but in a CNN the Feature Detector also gets adjusted
 
 
@@ -68,14 +57,13 @@ CONVOLUTIONAL NEURAL NETWORK (CNN)
 -----------------------------
 
 • Udemy: https://www.udemy.com/machinelearning/learn/v4/t/lecture/6761152?start=0
-
 • Output layer neurons of a CNN add up to 1 (example: dog 95% and cat 5%) because of the Softmax function
-
 • Cross-entropy goes hand in hand with the Softmax function
-
 • Cross-entropy: https://i.imgur.com/zGv5O1t.png
-
-• Cross-entropy will improve the CNN much better than mean squared
+• Cross-entropy will improve the CNN much better than mean squared error:
+    - https://i.imgur.com/rBRdxb5.png
+    - https://www.udemy.com/deeplearning/learn/v4/t/lecture/6761110?start=713
+• Cross-entropy is ok for classification if we want regression then we are better of with mean squared error
 
 """
 #######################################################################################################################
@@ -118,7 +106,7 @@ classifier.add(Dense(activation = 'relu', units=128))
 classifier.add(Dense(activation = 'sigmoid', units=1))  # sigmoid because of binary outcome x or y but if we have more we need to use softmax
 
 # Compiling the CNN
-classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
+classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy']) # for more categories (output neurons) we would use categorical_entropy
 
 # Part 2 - Fitting the CNN to the images
 # ---> IMAGE AUGMENTATION
@@ -136,7 +124,7 @@ test_datagen = ImageDataGenerator(rescale = 1./255)
 training_set = train_datagen.flow_from_directory('dataset/training_set',
                                                  target_size = (64, 64), # the target size of the images expected by the CNN (defined above in Step 1)
                                                  batch_size = 32, # batch size of images after which the weights will be adjusted
-                                                 class_mode = 'binary')
+                                                 class_mode = 'binary') # if more categories we need to use "categorical"
 
 test_set = test_datagen.flow_from_directory('dataset/test_set',
                                             target_size = (64, 64),
@@ -151,6 +139,27 @@ classifier.fit_generator(training_set,
                          # use_multiprocessing = True,
                          # workers = 4)
 
+# Saving the model
+# https://keras.io/getting-started/faq/#how-can-i-save-a-keras-model
+
+# Improving the model
+# https://www.udemy.com/deeplearning/learn/v4/questions/2276518
+# https://www.udemy.com/deeplearning/learn/v4/t/lecture/6744898?start=0
+
+# Part 3 - Making new predictions
+# https://www.udemy.com/deeplearning/learn/v4/t/lecture/6798970?start=0
+import numpy as np
+from keras.preprocessing import image
+test_image = image.load_img('dataset/single_prediction/cat_or_dog_1.jpg', target_size = (64, 64))
+test_image = image.img_to_array(test_image)
+test_image = np.expand_dims(test_image, axis = 0)
+result = classifier.predict(test_image)
+training_set.class_indices
+if result[0][0] == 1:
+    prediction = 'dog'
+else:
+    prediction = 'cat'
+
 """
 --------
 FROM Q&A
@@ -162,18 +171,4 @@ How to predict more images with CNN:
 3) output_dimensions = n_categories (dont subtract
 4) change the loss from 'binary_crossentropy' to 'categorical_crossentropy'
 5) change class_mode from 'binary' to 'categorical'
-
-Predict a single image:
-
-import numpy as np
-from keras.preprocessing import image
-test_image = image.load_img('dataset/single_prediction/cat_or_dog_1.jpg', target_size = (64, 64))
-test_image = image.img_to_array(test_image)
-test_image = np.expand_dims(test_image, axis = 0)
-result = classifier.predict(test_image)
-training_set.class_indices
-if result[0][0] == 1:
-prediction = 'dog'
-else:
-prediction = 'cat'
 """

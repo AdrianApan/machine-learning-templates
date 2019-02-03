@@ -58,7 +58,7 @@ GRID SEARCH
 
   - Lifehack: What is the state of the art algorithm for similar datasets, start by using that.
 
-  - Cross-validation and trials by looking at the data and establishing a  baseline with a simple logistic regression model
+  - Cross-validation and trials by looking at the data and establishing a baseline with a simple logistic regression model
     and increasing the complexity slowly by moving to d-trees, naivebayes, svm and finally NNs.
     Stop increasing the complexity when the model accuracy does not improve anynmore.
 
