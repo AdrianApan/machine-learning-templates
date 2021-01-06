@@ -9,7 +9,7 @@ Deep Learning Templates &amp; Bits | Udemy Course Notes
 
 ### v1.7.0
 
-* Adding thee "Deep Learning" course
+* Adding the "Deep Learning" course
 
 * ANN section updates
 
